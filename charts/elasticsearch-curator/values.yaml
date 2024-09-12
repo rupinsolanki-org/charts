@@ -32,7 +32,7 @@ serviceAccount:
 
 psp:
   # Specifies whether a podsecuritypolicy should be created
-  create: false
+  create: true
 
 image:
   repository: bitnami/elasticsearch-curator
