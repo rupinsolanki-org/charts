@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Karpenter Custom Resources Values",
+  "description": "Schema for values.yaml of the Karpenter Custom Resources Helm chart",
+  "type": "object",
+  "properties": {
+    "global": {
+      "type": "object",
+      "properties": {
+        "clusterName": {
+          "type": "string",
+          "description": "Name of the EKS cluster. Used for default resource discovery tags."
+        },
+        "awsRegion": {
+          "type": "string",
+          "description": "AWS Region where the cluster is located."
+        }
+      },
+      "additionalProperties": true
+    },
+    "ec2NodeClasses": {
+      "type": "array",
+      "description": "List of EC2NodeClass definitions.",
+      "items": {
+        "$ref": "./schemas/ec2nodeclass-schema.json"
+      }
+    },
+    "nodePools": {
+      "type": "array",
+      "description": "List of NodePool definitions.",
+      "items": {
+        "$ref": "./schemas/nodepool-schema.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}
